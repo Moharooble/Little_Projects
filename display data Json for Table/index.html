@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+
+  <style>
+
+
+
+    table {
+      width: 100%;
+      background:black;
+      text-align: center;
+    }
+    th {
+      background-color: rgb(196, 228, 81);
+      color: rgb(223, 31, 31);
+      font-size: 20px;
+    }
+
+    td {
+      background:rgb(235, 231, 231);
+    }
+    img {
+      width: 100px;
+      height: 100px;
+    }
+
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Place birth</th>
+        <th>Number Phone</th>
+      </tr>
+    </thead>
+    <tbody id="data-output">
+    
+
+    </tbody>
+  </table> 
+  <script>
+    let placeholder = document.querySelector("#data-output")
+
+    let url = ('./emp.JSON');
+    let getdata = async () =>{
+      let response = await fetch(url)
+      let data = await response.json()
+      return data;
+    }
+    getdata().then ( data => {
+      data.forEach(element => {
+        placeholder.innerHTML +=`
+            <tr>
+            <td> <img src='${element.img}'></td>
+            <td> ${element.name}</td>
+            <td> ${element.age}</td>
+            <td> ${element.place}</td>
+            <td> ${element.number}</td>
+          </tr>
+      `
+        
+      });
+
+    })
+
+
+    // fetch('./emp.JSON')
+    // .then( (response) =>{
+    //   return response.json();
+    // })
+    // .then( (employee) => {
+    //   let out = "";
+    //   for(let emp of employee){
+    //     out +=`
+    //       <tr>
+    //         <td> <img src='${emp.img}'></td>
+    //         <td> ${emp.name}</td>
+    //         <td> ${emp.age}</td>
+    //         <td> ${emp.place}</td>
+    //         <td> ${emp.number}</td>
+    //       </tr>
+    //     `;
+    //   }
+    //   placeholder.innerHTML = out;
+    // })
+
+
+  </script>
+</body>
+</html>

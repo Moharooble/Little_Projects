@@ -1,0 +1,23 @@
+[
+  {
+    "img" : "./images/picture.jpg",
+    "name" : "Rooble",
+    "age" : "25",
+    "place" : " buubi/Mudug",
+    "number" : "25290-732....."
+  },
+  {
+    "img" : "Accountant",
+    "name" : "Ali",
+    "age" : "22",
+    "place" : " bosaso",
+    "number" : "25290-788785"
+  },
+  {
+    "img" : "Accountant",
+    "name" : "Ahmed jamac",
+    "age" : "30",
+    "place" : " Garowe",
+    "number" : "25290-775874"
+  }
+]

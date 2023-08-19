@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .container{
+      margin: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10px;
+      background-color: aqua;
+      border-radius: 10px;
+    }
+    .area {
+      background: bisque;
+      height: 30px;
+      width: 250px;
+      margin-top: 3px;
+      margin-bottom: 10px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h4>user Name</h4>
+    <div class="area" id="dis1"></div>
+    <h4>user Title</h4>
+    <div class="area" id="dis2"></div>
+    <h4>user number</h4>
+    <div class="area" id="dis3"></div>
+    <select name="" id="select">
+      <option id="op" value=""></option>
+
+    </select>
+  </div>
+
+
+
+  <script>
+        let dis1 = document.querySelector("#dis1");
+        let dis2 = document.querySelector("#dis2");
+        let dis3 = document.querySelector("#dis3");
+        let select = document.querySelector("#select");
+        let op = document.querySelector("#op");
+
+        const sclt = async () => {
+            const url = ('./Post.JSON');
+            const response = await fetch(url)
+            const data = await response.json();
+            return data;
+        }
+
+        sclt().then(data => {
+            data.forEach(element => {
+                select.innerHTML += `<option  value="${element.user}" id="op">${element.user}</option>`
+            });
+        }).catch((eror) => console.error(eror));
+
+
+
+        select.addEventListener('change', (event) => {
+            update(event.target.value);
+        });
+
+        getcode = async (info) => {
+            const url = ('./Post.JSON');
+            const response = await fetch(url)
+            const data = await response.json();
+            return data;
+        }
+
+        update = async (perinfo) => {
+            getcode()
+                .then(data => {
+                    data.forEach((item) => {
+                        if (item.user === perinfo) {
+                            dis1.innerHTML = `${item.user}`;
+                            dis2.innerHTML = `${item.title}`;
+                            dis3.innerHTML = `${item.number}`;
+                        }
+                    });
+                })
+                .catch(error => console.error(error));
+        }
+
+
+
+
+        
+    // const update = async () => {
+    //   const url = ('./Post.JSON');
+    //   const response = await fetch(url)
+    //   const data = await response.json();
+    //   return data[3];
+
+    // }
+    // update().then( data => {
+    //   dis1.innerHTML = `${data.user}`
+    //   dis2.innerHTML = `${data.title}`
+    //   dis3.innerHTML = `${data.number}`  
+    // }).catch( (eror) => console.error(eror));
+
+  </script>
+</body>
+</html>

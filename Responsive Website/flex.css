@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
+/* nav {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  
+}
+nav ul {
+  display: flex;
+ 
+
+}
+nav ul li {
+  margin: 10px;
+  list-style: none;
+  
+}
+nav ul li:nth-child(2){
+  align-self: stretch;
+}
+nav ul li a {
+  text-decoration: none;
+} */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #5ea4b6;
+  padding: 15px;
+}
+.navbar a{
+  text-decoration: none;
+  color: inherit;
+}
+.logo{
+  margin-right: 50px;
+}
+.list{
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+#toggler,
+.navbar label{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  bottom: 700px;
+}
+/* .cancel i{
+  display: none;
+  text-align: right;
+}  */
+@media screen and (max-width:800px) {
+  .menu{
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+  }
+  .cancel i{
+  display: none;
+  text-align: right;
+} 
+  .list{
+    flex-direction: column;
+    align-items: center;
+    padding:10px;
+  }
+  .navbar label{
+    position: absolute;
+    right: 15px;
+    top: 25px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    text-align: right;
+  }
+  #toggler:checked ~ .menu{
+    max-height: 100%;
+  }
+  /* #toggler{
+  display:inline-flex;
+} */
+/* .dis.aa i{
+  display: none;
+}
+.cancel.bb i{
+  display: block;
+
+}
+.dis.cc i{
+  display: block;
+} */
+}
+.center {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #edf2fc;
+  
+
+}
+.boxes {
+  display: flex;
+  /* flex-direction: column; */
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+
+}
+.box:nth-child(1){
+  background-color: bisque;
+  /* flex: 1; */
+
+}
+.box:nth-child(2){
+  background-color: bisque;
+  /* flex: 2; */
+  
+}
+.box:nth-child(3){
+  background-color: rgb(168, 109,45);
+  /* flex: 1; */
+  
+}
+.box {
+  background-color: aquamarine;
+  margin: 10px;
+  padding: 20px;
+  height: 50%;
+
+
+}
+@media screen and (max-width: 800px) {
+  .boxes {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+}
+
+

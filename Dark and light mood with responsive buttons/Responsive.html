@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+  <style>
+    :root {
+      --color:aquamarine;
+    }
+    .dark {
+      --color:#65666e;
+
+    }
+
+
+    .container{
+      display: flex;
+      gap: 10px;
+      background-color: var(--color);
+      box-sizing: border-box;
+      width: 100%;
+      height: 90vh;
+      justify-content:center;
+      align-items: center;
+    }
+    .box{
+      background-color: gold;
+      width: 25%;
+     padding: 10px;
+     border-radius: 10px;
+     justify-content: center;
+     align-items: center;
+    }
+    .btn {
+  width: 90%;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #ff7e33;
+  border: 2px solid #ff7e33;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-display: block;
+  outline: none;
+  
+    }
+    .text {
+      display: none;
+    }
+    .text.dis {
+      display: block;
+      
+    }
+ 
+    
+    .btn2 {
+      width: 90%;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #ff7e33;
+  border: 2px solid #ff7e33;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-display: block;
+  outline: none;
+  display: none;
+    }
+    #checkbox{
+      display: none;
+
+    }
+    .toggler {
+      display: block;
+      width: 60px;
+      height: 31px;
+      background-color: rgb(53, 49, 49);
+      border: 2px solid #4672fe;
+      border-radius: 30px;
+      position: absolute;
+      cursor: pointer;
+      right: 15px ;
+      top: 15px;
+    }
+    .ball,
+    .fa-sun,
+    .fa-moon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .ball {
+      display: inline;
+      width: 25px;
+      height: 25px;
+      background-color: #4672fe;
+      border-radius: 50%;
+      left: 1px;
+      z-index: 10;
+      transition: transform .5s ease-in-out;
+
+    }
+    .fa-sun {
+      left: 5px;
+      color: #fff;
+
+    }
+    .fa-moon {
+      right: 5px;
+      color: #fff;
+    }
+    #checkbox:checked + .ball {
+      transform:
+      translate(29px, -50%);
+    }
+
+    
+
+  </style>
+</head>
+<body>
+  <label for="checkbox" class="toggler">
+    <input type="checkbox" id="checkbox">
+    <span class="ball"></span>
+    <i class="fa-sharp fa-solid fa-sun"></i>
+    <i class="fa-sharp fa-solid fa-moon"></i>
+    </label>
+  <div class="container">
+    <div class="box">
+      <div class="text ">
+      Somali waa wadan kamida wadamada africa 
+      kaaso mar soo ahaa kuwa ugu awooda badan
+      lknse maanta uu yahay kuwa qaxa abaaraha ay afeyen <br>
+    </div>
+    <button class="btn" id="lm">Learn more</button>
+    <button class="btn2" id="less">less</button>
+
+    </div>
+    <div class="box">
+      <div class="text">
+      Somali waa wadan kamida wadamada africa 
+      kaaso mar soo ahaa kuwa ugu awooda badan
+      lknse maanta uu yahay kuwa qaxa abaaraha ay afeyen
+    </div>
+    <button class="btn">Learn More</button> 
+    <button class="btn2" id="less">less</button>
+ 
+    </div>
+
+      <div class="box">
+        <div class="text">
+        Somali waa wadan kamida wadamada africa 
+        kaaso mar soo ahaa kuwa ugu awooda badan
+        lknse maanta uu yahay kuwa qaxa abaaraha ay afeyen <br>
+      </div>
+
+      <button class="btn">Learn more</button>
+      <button class="btn2" id="less">less</button>
+
+     </div>
+  </div>
+ 
+
+
+
+
+
+
+  <script>
+   let text = document.querySelectorAll(".text");
+
+   let btn = document.querySelectorAll(".btn");
+   let container = document.querySelector(".container");
+   let btn2 = document.querySelectorAll(".btn2");
+   let dark = document.querySelector(".dark");
+   let checkbox = document.querySelector("#checkbox");
+
+
+   checkbox.onclick = function() {
+      document.body.classList.toggle("dark");
+     
+    }
+
+
+
+   
+   for(let i=0; i<btn.length;i++){
+    btn[i].addEventListener('click',() => {
+      text[i].classList.toggle("dis")
+      btn[i].style = 'display: none';
+      // btn2[i].classList.add("le")
+      btn2[i].style = 'display: block';
+
+
+
+    })
+   }
+
+   for(let k=0; k<btn2.length;k++){
+    btn2[k].addEventListener('click',() => {
+      text[k].classList.toggle("dis")
+      btn[k].style = 'display: block';
+      btn2[k].style = 'display: none';
+
+
+    })
+   }
+
+
+    btn.addEventListener('click',() => {    
+      text.classList.add("dis")
+    });
+
+
+    const displ = () => {
+    text.classList.add('dis')
+  }
+btn.addEventListener('click',() =>{
+    displ(text);
+  });
+
+btn.addEventListener('click',(event) => {
+  if(event.target.classList.contains("text")) {
+    event.target.classList.add("dis")
+  }     
+     });
+
+
+  </script>
+</body>
+</html>
